@@ -1,0 +1,19 @@
+{
+  "name": "qa-engineer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:headful": "cypress open"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "firebase-functions": "^3.13.0",
+    "node-persist": "^3.1.0"
+  },
+  "devDependencies": {
+    "cypress": "^6.3.0"
+  }
+}
