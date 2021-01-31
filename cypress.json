@@ -1,1 +1,9 @@
-{}
+{
+  "baseUrl": "https://sl-toyota-riley-green-live.web.app/",
+  "screenshotsFolder": "cypress/output/screenshots",
+  "videosFolder": "cypress/output/videos",
+  "viewportWidth": 1980,
+  "viewportHeight": 1060,
+  "waitForAnimations": true,
+  "watchForFileChanges": false
+}

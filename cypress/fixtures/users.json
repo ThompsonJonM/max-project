@@ -1,0 +1,11 @@
+{
+  "users": {
+    "validUser": {
+      "firstName": "Test",
+      "lastName": "Tester",
+      "zip": 60613,
+      "email": "test@test.com",
+      "phone": "555 555 5555"
+    }
+  }
+}

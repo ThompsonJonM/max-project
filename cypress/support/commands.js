@@ -23,3 +23,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("fillForm", (user) => {
+  if (user.firstName) {
+    cy.contains("div", "First or given name...")
+      .siblings("input")
+      .type(user.firstName);
+  }
+
+  if (user.lastName) {
+    cy.contains("div", "Last or family name...")
+      .siblings("input")
+      .type(user.lastName);
+  }
+
+  cy.contains("div", "5-digit code...").siblings("input").type(user.zip);
+
+  if (user.email) {
+    cy.contains("div", "john@email.com").siblings("input").type(user.email);
+  }
+
+  cy.contains("div", "(000) 000-0000").siblings("input").type(user.phone);
+});
