@@ -1,4 +1,9 @@
-import { verifyEmail, verifyPassword } from "../../../accounts";
+import {
+  checkPassword,
+  hashPassword,
+  verifyEmail,
+  verifyPassword,
+} from "../../../accounts";
 import filterTests from "../../plugins/filterTests";
 
 const BANNED_EMAILS = [
@@ -54,6 +59,46 @@ filterTests(["all", "unit"], () => {
         specify(`Invalid password: ${$password} returns false`, () => {
           expect(verifyPassword($password)).to.eq(false);
         });
+      });
+    });
+
+    context("Hash Password", () => {
+      specify("Valid password returns a value", () => {
+        const password = hashPassword("test");
+
+        expect(!!password).to.eq(true);
+      });
+
+      specify("Null password returns error", () => {
+        try {
+          hashPassword(null);
+        } catch ($error) {
+          expect(!!$error).to.eq(true);
+        }
+      });
+    });
+
+    context("Check Password", () => {
+      specify("Valid check returns true", () => {
+        const password = "test";
+        const hash = hashPassword("test");
+
+        expect(checkPassword(password, hash)).to.eq(true);
+      });
+
+      specify("Invalid check returns false", () => {
+        const password = "test";
+        const hash = hashPassword("testing");
+
+        expect(checkPassword(password, hash)).to.eq(false);
+      });
+
+      specify("Null check returns error", () => {
+        try {
+          checkPassword(null);
+        } catch ($error) {
+          expect(!!$error).to.eq(true);
+        }
       });
     });
   });

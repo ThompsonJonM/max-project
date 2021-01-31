@@ -7,7 +7,7 @@ describe("Riley Green Web App Tests", () => {
     cy.visit(Cypress.config("baseUrl"));
   });
 
-  specify("As a user, I should be able to input valid data", () => {
+  specify.only("As a user, I should be able to input valid data", () => {
     cy.fixture("users.json").then(($json) => {
       cy.fillForm($json.users.validUser);
     });
